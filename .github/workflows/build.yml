@@ -919,7 +919,7 @@ jobs:
         run: |
           set -euo pipefail
           curl -fsSL --retry 5 --retry-delay 5 --retry-all-errors \
-            https://raw.githubusercontent.com/Hybrid-Mount/meta-hybrid_mount/dev/module/vfs/setup.sh | bash -s dev
+            https://raw.githubusercontent.com/Hybrid-Mount/meta-hybrid_mount/dev/module/vfs/setup.sh | bash
 
           if [ ! -L "fs/hybridmount" ]; then
             echo "::error::NoMount 集成失败：fs/hybridmount 软链接缺失"
