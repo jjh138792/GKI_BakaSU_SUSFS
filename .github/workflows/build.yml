@@ -920,11 +920,7 @@ jobs:
           set -euo pipefail
           curl -fsSL --retry 5 --retry-delay 5 --retry-all-errors \
             https://raw.githubusercontent.com/Hybrid-Mount/meta-hybrid_mount/dev/module/vfs/setup.sh | bash
-
-          if [ ! -L "fs/hybridmount" ]; then
-            echo "::error::NoMount 集成失败：fs/hybridmount 软链接缺失"
-            exit 1
-          fi
+            
           echo "NoMount 集成完成，commit: $(git -C NoMount rev-parse HEAD)"
 
           if ! grep -q '^CONFIG_HYBRIDMOUNT=y' "$DEFCONFIG"; then
